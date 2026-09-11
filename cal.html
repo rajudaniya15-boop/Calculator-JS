@@ -1,0 +1,182 @@
+<html>
+    <head>
+        
+          
+        <style>
+            #ov{
+                min-height: 500px;
+                width: 370px;
+                background-color: black;
+                margin: 30px auto;
+                border-radius: 10px;
+                padding: 25px;
+                box-sizing: border-box;
+
+                
+            }
+            #bgcolor{
+                background-color: orangered;
+                color: white;
+                font-weight: bold;
+            }
+            .top{
+                width: 300px;
+                height: 100px;
+                background-color: white;
+                margin: 0px 10px;
+                border-radius: 10px;
+                text-align: right;
+                font-size: 80px;
+                margin: 0px 10px;
+                font-family: digital-7;
+                box-shadow: 2PX 2PX 10PX 2PX black inset;
+
+            }
+            .a{
+                width: 320px;
+                height: 80px;
+                
+               
+            }
+            .c{
+                height: 60px;
+                width: 60px;
+                background-color: white;
+                float: left;
+                margin: 10px;
+                border-radius: 7px;
+                font-size: 40px;
+                line-height: 60px;
+                text-align: center;
+                 font-family: digital-7;
+            }
+            .c:hover{
+                background-color:yellow;
+               
+            }
+            /* #ov:hover{
+                background-color: pink;
+                 text-shadow: 5px 5px 20px purple;
+                box-shadow: (0px 0px 10px 0px aqua inset);
+                transition: all 3s;
+                transform: scale(0.3,0.3);
+                transform: translate(20px,50px);
+             
+
+            } */
+          
+        
+        </style>
+
+    </head>
+    <body>
+       
+       <div id="ov">
+        <div class="top" id="top"></div>
+        <div class="a">
+            <div class="c" id="c" onclick="enternum('7')">7</div>
+             <div class="c" id="ca" onclick="enternum('8')" >8</div>
+              <div class="c" id="cb" onclick="enternum('9')" >9</div>
+               <div class="c" id="bgcolor" onclick="divi()">/</div>
+        </div>
+         <div class="a">
+             <div class="c" onclick="enternum('4')">4</div>
+             <div class="c" onclick="enternum('5')">5</div>
+              <div class="c" onclick="enternum('6')">6</div>
+               <div class="c" id="bgcolor" onclick="mul()">*</div>
+         </div>
+          <div class="a">
+             <div class="c" onclick="enternum('1')" >1</div>
+             <div class="c" onclick="enternum('2')">2</div>
+              <div class="c" onclick="enternum('3')">3</div>
+               <div class="c" id="bgcolor1" onclick="demoadd()" style="background-color: orangered; color: white;">+</div>
+          </div>
+           <div class="a">
+             <div class="c" onclick="enternum('0')">0</div>
+             <div class="c" onclick="enternum('.')">.</div>
+              <div class="c"  onclick="addans()" id="equal">=</div>
+               <div class="c" id="bgcolor3" onclick="sub()" style="background-color: orangered; color: white;">-</div>
+           </div>
+
+       </div>
+       <marquee scrollamount="24"><h1 style="color:orangered;font-size: 30px;">RAJ's Calculator</h1></marquee>
+       <script>
+        var cc=document.getElementById("c")
+        var ca=document.getElementById("ca")
+        var cb=document.getElementById("cb")
+        var display=document.getElementById("top")
+        var bgcolor1=document.getElementById("bgcolor1")
+        var equal=document.getElementById("equal")
+        var operator=""
+        var enterfirvalue=""
+        var entersecvalue=""
+        function enternum(value){
+            if(operator == ""){
+        enterfirvalue += value;
+        display.innerText = enterfirvalue;
+            
+            
+            }
+            else{
+                entersecvalue+=value
+                display.innerText=enterfirvalue + operator + entersecvalue
+            }
+         
+         
+            
+
+
+
+        }
+        function demoadd(){
+            
+           operator="+"
+            // display.innerText="+"
+         
+        }
+        function sub(){
+             
+            operator="-"
+            //  display.innerText="-"
+         
+        }
+        function mul(){
+            
+            operator="*"
+            //  display.innerText="*"
+           
+
+        }
+        function divi(){
+            //   enterfirvalue=display.innerText
+            operator="/"
+            // display.innerText="/"
+
+        }
+        
+        function addans(){
+            var result;
+           
+           
+            if(operator=="+"){
+           result=Number(enterfirvalue)+Number(entersecvalue)
+
+           }
+            else if(operator=="-"){
+           result=Number(enterfirvalue)-Number(entersecvalue)
+            }
+            else if(operator=="*"){
+           result=Number(enterfirvalue)*Number(entersecvalue)
+            }
+            else if(operator=="/"){
+          result=Number(enterfirvalue)/Number(entersecvalue)
+            }
+            display.innerText = enterfirvalue + operator + entersecvalue + "=" + result;
+        }
+       
+            
+           
+       </script>
+          
+    </body>
+</html>
